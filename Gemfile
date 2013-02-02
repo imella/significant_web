@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem 'friendly_id'
 gem 'omniauth-facebook'
 gem 'rabl'
+gem 'paperclip'
 
 
 group :development do
