@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130202210946) do
+ActiveRecord::Schema.define(:version => 20130202220258) do
 
   create_table "goals", :force => true do |t|
     t.integer  "distance"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20130202210946) do
     t.string   "type"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "run_type_id"
     t.integer  "race_type_id"
   end
 
@@ -42,6 +43,29 @@ ActiveRecord::Schema.define(:version => 20130202210946) do
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
   end
+
+  create_table "run_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "runs", :force => true do |t|
+    t.integer  "run_type_id"
+    t.integer  "total_time"
+    t.float    "average_speed"
+    t.integer  "total_distance"
+    t.datetime "started_at"
+    t.datetime "ended_at"
+    t.integer  "race_id"
+    t.integer  "user_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "runs", ["race_id"], :name => "index_runs_on_race_id"
+  add_index "runs", ["run_type_id"], :name => "index_runs_on_run_type_id"
+  add_index "runs", ["user_id"], :name => "index_runs_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
