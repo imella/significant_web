@@ -11,25 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130202210946) do
+ActiveRecord::Schema.define(:version => 20130202213929) do
 
   create_table "goals", :force => true do |t|
     t.integer  "distance"
     t.integer  "race_id"
     t.string   "type"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.integer  "race_type_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "run_type_id"
   end
 
   add_index "goals", ["race_id"], :name => "index_goals_on_race_id"
-  add_index "goals", ["race_type_id"], :name => "index_goals_on_race_type_id"
-
-  create_table "race_types", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "races", :force => true do |t|
     t.string   "name"
@@ -41,6 +34,12 @@ ActiveRecord::Schema.define(:version => 20130202210946) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+  end
+
+  create_table "run_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
