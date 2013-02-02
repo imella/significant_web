@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130202200155) do
+ActiveRecord::Schema.define(:version => 20130202204637) do
+
+  create_table "goals", :force => true do |t|
+    t.integer  "distance"
+    t.integer  "race_id"
+    t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "goals", ["race_id"], :name => "index_goals_on_race_id"
 
   create_table "races", :force => true do |t|
     t.string   "name"
