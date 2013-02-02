@@ -21,6 +21,20 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'friendly_id'
+gem 'omniauth-facebook'
+gem 'rabl'
+
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'letter_opener'
+end
+
+group :development, :test do
+  gem "rspec-rails", "~> 2.0"
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
