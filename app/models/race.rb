@@ -3,5 +3,6 @@ class Race < ActiveRecord::Base
 
   has_attached_file :logo
 
+  has_many :goals
 
 end
