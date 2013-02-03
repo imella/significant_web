@@ -5,9 +5,6 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -31,10 +28,15 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'letter_opener'
+  gem 'sqlite3'
 end
 
 group :development, :test do
   gem "rspec-rails", "~> 2.0"
+end
+
+group :production do
+  gem 'pg'
 end
 
 # To use ActiveModel has_secure_password
