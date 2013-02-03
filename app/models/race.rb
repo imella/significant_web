@@ -6,4 +6,9 @@ class Race < ActiveRecord::Base
   has_many :goals
   has_many :runs
 
+
+  def progress
+    (goals.map &:progress).reduce(:+) / goals.size
+  end
+
 end
