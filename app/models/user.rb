@@ -7,7 +7,12 @@ class User < ActiveRecord::Base
 
 
   def self.find_by_id_or_facebook_id _id
-    find_by_id(_id) || find_by_uid(_id)
+    _user = find_by_id(_id) || find_by_uid(_id)
+    if _user
+      _user
+    else
+      raise ActiveRecord::RecordNotFound
+    end
   end
 
 end
