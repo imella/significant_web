@@ -1,7 +1,12 @@
 class Api::V1::RunsController < ApplicationController
   respond_to :json
 
-  before_filter :utc_to_datetime
+  before_filter :utc_to_datetime, only: [:create]
+
+  def show
+    @run = Run.find params[:id]
+    respond_with @run
+  end
 
   def create
     @run = Run.new params[:run]

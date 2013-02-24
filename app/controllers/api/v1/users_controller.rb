@@ -1,7 +1,7 @@
 class Api::V1::UsersController < ApplicationController
   respond_to :json
   def show
-    @user = User.find params[:id]
+    @user = User.find_by_id_or_facebook_id params[:id]
     respond_with @user, status: :ok
   end
 

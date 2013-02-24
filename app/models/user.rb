@@ -3,4 +3,11 @@ class User < ActiveRecord::Base
 
   validates :name, :email, :oauth_token, :uid, presence: true
 
+  validates :email, uniqueness: true
+
+
+  def self.find_by_id_or_facebook_id _id
+    find(_id) || find_by_uid(_id)
+  end
+
 end

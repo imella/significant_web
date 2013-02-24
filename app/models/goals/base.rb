@@ -1,5 +1,5 @@
 class Goals::Base < ActiveRecord::Base
-  set_table_name 'goals'
+  self.table_name = 'goals'
 
   attr_accessible :race_id, :type, :run_type_id
 
