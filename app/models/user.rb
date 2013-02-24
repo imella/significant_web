@@ -15,4 +15,12 @@ class User < ActiveRecord::Base
     end
   end
 
+  def created_at_int
+    created_at.to_i
+  end
+
+  def updated_at_int
+    updated_at.to_i
+  end
+
 end
