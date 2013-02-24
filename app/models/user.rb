@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
 
   def self.find_by_id_or_facebook_id _id
-    find(_id) || find_by_uid(_id)
+    find_by_id(_id) || find_by_uid(_id)
   end
 
 end
