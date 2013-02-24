@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130202220258) do
+ActiveRecord::Schema.define(:version => 20130224215156) do
 
   create_table "goals", :force => true do |t|
     t.integer  "distance"
@@ -20,10 +20,17 @@ ActiveRecord::Schema.define(:version => 20130202220258) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "run_type_id"
+    t.integer  "race_type_id"
   end
 
   add_index "goals", ["race_id"], :name => "index_goals_on_race_id"
   add_index "goals", ["race_type_id"], :name => "index_goals_on_race_type_id"
+
+  create_table "race_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "races", :force => true do |t|
     t.string   "name"
@@ -70,7 +77,7 @@ ActiveRecord::Schema.define(:version => 20130202220258) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.string   "gender"
-    t.string   "localtion"
+    t.string   "location"
     t.datetime "oauth_expires_at"
   end
 
