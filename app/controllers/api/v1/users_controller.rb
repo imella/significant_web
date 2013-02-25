@@ -29,7 +29,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def utc_to_datetime
-    params[:user][:oauth_expires_at] = Time.at params[:user][:oauth_expires_at]
-    params[:user][:birthday] = Time.at(params[:user][:birthday]).to_date
+    params[:user][:oauth_expires_at] = Time.at(params[:user][:oauth_expires_at]/1000)
+    params[:user][:birthday] = Time.at(params[:user][:birthday]/1000).to_date
   end
 end

@@ -20,8 +20,8 @@ class Api::V1::RunsController < ApplicationController
   private
 
   def utc_to_datetime
-    params[:run][:started_at] = Time.at params[:run][:started_at]
-    params[:run][:ended_at] = Time.at params[:run][:ended_at]
+    params[:run][:started_at] = Time.at(params[:run][:started_at] / 1000)
+    params[:run][:ended_at] = Time.at(params[:run][:ended_at] / 1000)
   end
 
 end
