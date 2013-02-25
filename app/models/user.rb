@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
     updated_at.to_i
   end
 
+  def birthday_int
+    birthday.to_datetime.to_i
+  end
+
 end
