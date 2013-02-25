@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   end
 
   def birthday_int
-    birthday.to_datetime.to_i
+    birthday.to_datetime.to_i if birthday
   end
 
 end
