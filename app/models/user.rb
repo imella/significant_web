@@ -27,4 +27,8 @@ class User < ActiveRecord::Base
     birthday.to_datetime.to_i if birthday
   end
 
+  def oauth_expires_at_int
+    oauth_expires_at.to_i
+  end
+
 end
