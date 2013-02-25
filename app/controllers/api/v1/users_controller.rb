@@ -1,5 +1,8 @@
 class Api::V1::UsersController < ApplicationController
   respond_to :json
+
+  before_filter :utc_to_datetime, only: [:create]
+
   def show
     @user = User.find_by_id_or_facebook_id params[:id]
     respond_with @user, status: :ok
@@ -21,5 +24,11 @@ class Api::V1::UsersController < ApplicationController
 
   def destroy
     
+  end
+
+  private
+
+  def utc_to_datetime
+    params[:user][:oauth_expires_at] = Time.at params[:user][:oauth_expires_at]
   end
 end
