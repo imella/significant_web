@@ -8,4 +8,20 @@ class Run < ActiveRecord::Base
 
   scope :by_type, lambda { |run_type_id| where(run_type_id: run_type_id)}
 
+  def started_at_int
+    started_at.to_i * 1000
+  end
+
+  def ended_at_int
+    ended_at.to_i * 1000
+  end
+
+  def created_at_int
+    created_at.to_i * 1000
+  end
+
+  def updated_at_int
+    updated_at.to_i * 1000
+  end
+
 end
