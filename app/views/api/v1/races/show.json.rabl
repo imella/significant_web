@@ -12,11 +12,8 @@ node :links do
 end
 
 child :goals do
-  attributes :id, :distance, :run_type_id, :progress, :accumulated
+  attributes :id, :distance, :progress, :accumulated, :milestone
   attributes completed?: :completed
-  child :run_type do
-    attributes :id, :name
-  end
 end
 
 child :runs do

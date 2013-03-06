@@ -11,15 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130224215156) do
+ActiveRecord::Schema.define(:version => 20130228230647) do
 
   create_table "goals", :force => true do |t|
-    t.integer  "distance"
+    t.integer  "milestone"
     t.integer  "race_id"
-    t.string   "type"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-    t.integer  "run_type_id"
     t.integer  "race_type_id"
   end
 
@@ -61,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20130224215156) do
     t.integer  "user_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.float    "score"
   end
 
   add_index "runs", ["race_id"], :name => "index_runs_on_race_id"

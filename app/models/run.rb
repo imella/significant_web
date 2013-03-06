@@ -8,6 +8,8 @@ class Run < ActiveRecord::Base
 
   scope :by_type, lambda { |run_type_id| where(run_type_id: run_type_id)}
 
+  before_save :set_score
+
   def started_at_int
     started_at.to_i * 1000
   end
@@ -22,6 +24,10 @@ class Run < ActiveRecord::Base
 
   def updated_at_int
     updated_at.to_i * 1000
+  end
+
+  def set_score
+    self.score = self.total_distance
   end
 
 end

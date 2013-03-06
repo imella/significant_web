@@ -11,6 +11,10 @@ class Race < ActiveRecord::Base
     (goals.map &:progress).reduce(:+) / goals.size
   end
 
+  def accumulated
+    (goals.map &:accumulated).reduce(:+)
+  end
+
   def created_at_int
     created_at.to_i * 1000
   end
