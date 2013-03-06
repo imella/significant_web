@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130228230647) do
+ActiveRecord::Schema.define(:version => 20130306015436) do
 
   create_table "goals", :force => true do |t|
     t.integer  "milestone"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20130228230647) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.string   "image_url"
   end
 
   create_table "run_types", :force => true do |t|

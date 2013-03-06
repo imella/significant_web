@@ -1,0 +1,5 @@
+class AddImageUrlToRace < ActiveRecord::Migration
+  def change
+    add_column :races, :image_url, :string
+  end
+end

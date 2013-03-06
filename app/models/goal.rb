@@ -13,4 +13,12 @@ class Goal < ActiveRecord::Base
   def completed?
     accumulated >= milestone
   end
+
+  def created_at_int
+    created_at.to_i * 1000
+  end
+
+  def updated_at_int
+    updated_at.to_i * 1000
+  end
 end
