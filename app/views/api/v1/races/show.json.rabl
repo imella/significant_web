@@ -1,5 +1,5 @@
 object @race
-attributes :id, :name, :short_description, :long_description, :progress
+attributes :id, :name, :short_description, :long_description, :progress, :accumulated
 attributes created_at_int: :created_at, updated_at_int: :updated_at
 
 node :links do
