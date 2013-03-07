@@ -18,7 +18,7 @@ child :goals do
 end
 
 child :runs do
-  attributes :total_time, :average_speed, :total_distance
+  attributes :id, :total_time, :average_speed, :total_distance
   attributes created_at_int: :created_at, updated_at_int: :updated_at
   child :user do
     attributes :id, :name
