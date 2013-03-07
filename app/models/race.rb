@@ -5,6 +5,8 @@ class Race < ActiveRecord::Base
 
   has_many :goals
   has_many :runs
+  has_many :race_run_types
+  has_many :run_types, through: :race_run_types
 
 
   def progress

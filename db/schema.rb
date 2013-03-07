@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130306015436) do
+ActiveRecord::Schema.define(:version => 20130307215139) do
 
   create_table "goals", :force => true do |t|
     t.integer  "milestone"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(:version => 20130306015436) do
 
   add_index "goals", ["race_id"], :name => "index_goals_on_race_id"
   add_index "goals", ["race_type_id"], :name => "index_goals_on_race_type_id"
+
+  create_table "race_run_types", :force => true do |t|
+    t.integer  "race_id"
+    t.integer  "run_type_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "race_run_types", ["race_id"], :name => "index_race_run_types_on_race_id"
+  add_index "race_run_types", ["run_type_id"], :name => "index_race_run_types_on_run_type_id"
 
   create_table "race_types", :force => true do |t|
     t.string   "name"
