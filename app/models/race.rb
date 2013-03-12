@@ -10,11 +10,11 @@ class Race < ActiveRecord::Base
 
 
   def progress
-    (goals.map &:progress).reduce(:+) / goals.size
+    accumulated / last_milestone
   end
 
   def accumulated
-    (goals.map &:accumulated).reduce(:+)
+    runs.sum(:score)
   end
 
   def created_at_int
@@ -23,6 +23,14 @@ class Race < ActiveRecord::Base
 
   def updated_at_int
     updated_at.to_i * 1000
+  end
+
+  def last_milestone
+    goals.last.milestone
+  end
+
+  def current_goal
+    goals.keep_if { |g| not g.completed? }.first
   end
 
 end

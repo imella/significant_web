@@ -14,7 +14,7 @@ ActiveSupport.on_load(:active_record) do
 end
 
 # Rabl Cnfiguration
-Rabl.configure do |config|
-  config.include_json_root = false
-  config.include_child_root = false
-end
+# Rabl.configure do |config|
+#   config.include_json_root = false
+#   config.include_child_root = false
+# end

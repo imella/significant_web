@@ -2,6 +2,8 @@ class Goal < ActiveRecord::Base
   belongs_to :race
   attr_accessible :milestone
 
+  default_scope order(:milestone)
+
   def progress
     (accumulated >= milestone) ? 1.0 : (accumulated.to_f / milestone.to_f)
   end

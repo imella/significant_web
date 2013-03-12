@@ -1,13 +1,15 @@
 object @race
-attributes :id, :name, :short_description, :long_description, :progress, :accumulated, :image_url
+attributes :id, :name, :short_description, :long_description, :progress, :accumulated, :image_url, :last_milestone
 attributes created_at_int: :created_at, updated_at_int: :updated_at
 
 node :links do
   [
     {
-      rel: :show,
-      url: api_v1_race_url(@race),
-      method: :get
+      link: {
+        rel: :show,
+        url: api_v1_race_url(@race),
+        method: :get
+      }
     }
   ]
 end
