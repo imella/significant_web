@@ -1,6 +1,10 @@
 collection @races
-attributes :id, :name, :short_description, :long_description, :progress, :accumulated, :current_goal
+attributes :id, :name, :short_description, :long_description, :progress, :accumulated
 attributes created_at_int: :created_at, updated_at_int: :updated_at
+
+node :current_goal do |race|
+  {id: race.current_goal.id, milestone: race.current_goal.milestone, race_id: race.id, created_at: race.current_goal.created_at_int, updated_at: race.current_goal.updated_at_int}
+end
 
 node :links do |race|
   [
