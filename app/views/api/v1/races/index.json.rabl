@@ -13,3 +13,7 @@ node :links do |race|
     }
   ]
 end
+
+child :run_types do
+  attributes :id, :name
+end
