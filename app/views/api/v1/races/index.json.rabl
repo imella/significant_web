@@ -7,7 +7,7 @@ node :links do |race|
    {
       link: {
         rel: :show,
-        url: api_v1_race_url(@race),
+        url: api_v1_race_url(race),
         method: :get
       }
     }
