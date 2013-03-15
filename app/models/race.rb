@@ -30,7 +30,12 @@ class Race < ActiveRecord::Base
   end
 
   def current_goal
-    goals.keep_if { |g| not g.completed? }.first
+    _goal = goals.keep_if { |g| not g.completed? }.first
+    if _goal
+      _goal
+    else
+      goals.last
+    end
   end
 
 end
