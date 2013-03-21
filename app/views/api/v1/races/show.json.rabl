@@ -14,6 +14,10 @@ node :links do
   ]
 end
 
+node :current_goal do
+  {id: @race.current_goal.id, milestone: @race.current_goal.milestone, race_id: @race.id, created_at: @race.current_goal.created_at_int, updated_at: @race.current_goal.updated_at_int}
+end
+
 child :goals do
   attributes :id, :distance, :progress, :accumulated, :milestone
   attributes completed?: :completed
