@@ -1,6 +1,6 @@
 class Goal < ActiveRecord::Base
   belongs_to :race
-  attr_accessible :milestone
+  attr_accessible :milestone, :name
 
   default_scope order(:milestone)
 

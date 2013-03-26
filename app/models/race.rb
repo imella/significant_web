@@ -1,5 +1,5 @@
 class Race < ActiveRecord::Base
-  attr_accessible :long_description, :name, :short_description, :logo
+  attr_accessible :long_description, :name, :short_description, :logo, :youtube_id
 
   has_attached_file :logo
 
