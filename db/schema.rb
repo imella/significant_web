@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130403021501) do
+ActiveRecord::Schema.define(:version => 20130403023615) do
 
   create_table "goals", :force => true do |t|
     t.integer  "milestone"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20130403021501) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.float    "modifier"
   end
 
   create_table "runs", :force => true do |t|

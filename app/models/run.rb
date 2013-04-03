@@ -29,7 +29,7 @@ class Run < ActiveRecord::Base
   end
 
   def set_score
-    self.score = self.total_distance
+    self.score = self.total_distance * self.run_type.modifier
   end
 
   def set_average_speed
