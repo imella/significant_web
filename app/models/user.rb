@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessible :birthday, :email, :name, :oauth_token, :uid, :oauth_expires_at
 
+  has_many :runs
+
   validates :name, :email, :uid, presence: true
 
   validates :email, uniqueness: true

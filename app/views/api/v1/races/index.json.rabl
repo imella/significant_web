@@ -1,5 +1,5 @@
 collection @races
-attributes :id, :name, :short_description, :long_description, :progress, :accumulated, :last_milestone, :image_url
+attributes :id, :name, :short_description, :long_description, :progress, :accumulated, :last_milestone, :image_url, :share_message_template
 attributes created_at_int: :created_at, updated_at_int: :updated_at
 
 node :current_goal do |race|
