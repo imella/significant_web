@@ -36,6 +36,10 @@ class Run < ActiveRecord::Base
     self.average_speed = (self.total_distance.to_f/(self.total_time.to_f / 1000.0)) * 3.6
   end
 
+  def average_speed_text
+    "#{average_speed} Km/h"
+  end
+
   def to_km
     total_distance / 1000
   end
