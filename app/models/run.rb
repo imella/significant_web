@@ -40,6 +40,10 @@ class Run < ActiveRecord::Base
     "#{average_speed} Km/h"
   end
 
+  def score_int
+    self.score.to_i
+  end
+
   def to_km
     total_distance / 1000
   end
