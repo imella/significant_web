@@ -26,5 +26,3 @@ end
 child :run_types do
   attributes :id, :name
 end
-
-child :runs
