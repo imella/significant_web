@@ -3,7 +3,7 @@ attributes :id, :name, :short_description, :long_description, :progress, :accumu
 attributes created_at_int: :created_at, updated_at_int: :updated_at
 
 node :current_goal do |race|
-  {id: race.current_goal.id, milestone: race.current_goal.milestone, race_id: race.id, created_at: race.current_goal.created_at_int, updated_at: race.current_goal.updated_at_int, name: race.current_goal.name, progress: race.current_goal.progress, number: race.current_goal.number}
+  {id: race.current_goal.id, milestone: race.current_goal.milestone, race_id: race.id, created_at: race.current_goal.created_at_int, updated_at: race.current_goal.updated_at_int, name: race.current_goal.name, progress: race.current_goal.progress, number: race.current_goal.number, accumulated: race.current_goal.accumulated}
 end
 
 child :goals do
