@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130618033356) do
+ActiveRecord::Schema.define(:version => 20130627025817) do
 
   create_table "goals", :force => true do |t|
     t.integer  "milestone"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20130618033356) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "name"
+    t.integer  "number"
   end
 
   add_index "goals", ["race_id"], :name => "index_goals_on_race_id"
