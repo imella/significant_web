@@ -36,6 +36,7 @@ class Race < ActiveRecord::Base
     goals.order(:milestone).each do |goal|
       if not goal.completed?
         _goal = goal
+        break
       end
     end
     if not _goal.nil?
