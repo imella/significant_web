@@ -33,7 +33,7 @@ class Race < ActiveRecord::Base
 
   def current_goal
     _goal = nil
-    goals.order(:milestone).each do |goal|
+    goals.order('milestone asc').each do |goal|
       if not goal.completed?
         _goal = goal
       end
