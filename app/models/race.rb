@@ -43,7 +43,7 @@ class Race < ActiveRecord::Base
     else
       _goal = goals.last
     end
-    goal
+    _goal
   end
 
 end
