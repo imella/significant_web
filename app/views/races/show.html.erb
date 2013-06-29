@@ -1,0 +1,30 @@
+<h1><%= @race.name %></h1>
+
+<p><%= @race.long_description.html_safe %></p>
+
+
+<h2>Actividad</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Distancia</th>
+      <th>Fecha</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @runs.each do |run| %>
+      <tr>
+        <td><%= run.run_type.name %></td>
+        <td><%= run.user.name %></td>
+        <td><%= run.user.email %></td>
+        <td><%= run.to_km %> Km</td>
+        <td><%= l run.created_at, format: :short %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

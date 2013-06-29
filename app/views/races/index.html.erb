@@ -1,0 +1,27 @@
+<h1>Listado de Campañas</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Progreso</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @races.each do |race| %>
+      <tr>
+        <td><%= race.name %></td>
+        <td>
+          <div class="progress">
+            <div class="bar" style="width: <%= number_to_percentage race.progress*100, precision: 0 %>;"></div>
+          </div>
+        </td>
+        <td>
+          <%= link_to 'Detalle', race_path(race), class: 'btn btn-info' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
