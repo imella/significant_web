@@ -11,19 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130403023615) do
+ActiveRecord::Schema.define(:version => 20130618033356) do
 
   create_table "goals", :force => true do |t|
     t.integer  "milestone"
     t.integer  "race_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.integer  "race_type_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "name"
   end
 
   add_index "goals", ["race_id"], :name => "index_goals_on_race_id"
-  add_index "goals", ["race_type_id"], :name => "index_goals_on_race_type_id"
 
   create_table "race_run_types", :force => true do |t|
     t.integer  "race_id"
@@ -34,12 +32,6 @@ ActiveRecord::Schema.define(:version => 20130403023615) do
 
   add_index "race_run_types", ["race_id"], :name => "index_race_run_types_on_race_id"
   add_index "race_run_types", ["run_type_id"], :name => "index_race_run_types_on_run_type_id"
-
-  create_table "race_types", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "races", :force => true do |t|
     t.string   "name"
@@ -54,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20130403023615) do
     t.string   "image_url"
     t.string   "youtube_id"
     t.text     "share_message_template"
+    t.string   "institution_image_url"
   end
 
   create_table "run_types", :force => true do |t|
@@ -81,6 +74,16 @@ ActiveRecord::Schema.define(:version => 20130403023615) do
   add_index "runs", ["race_id"], :name => "index_runs_on_race_id"
   add_index "runs", ["run_type_id"], :name => "index_runs_on_run_type_id"
   add_index "runs", ["user_id"], :name => "index_runs_on_user_id"
+
+  create_table "sponsors", :force => true do |t|
+    t.string   "name"
+    t.string   "image_url"
+    t.integer  "race_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sponsors", ["race_id"], :name => "index_sponsors_on_race_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

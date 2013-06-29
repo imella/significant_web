@@ -45,7 +45,7 @@ class Run < ActiveRecord::Base
   end
 
   def to_km
-    total_distance / 1000
+    (total_distance / 1000.to_f).round(2)
   end
 
   def set_share_message

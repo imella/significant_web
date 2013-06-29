@@ -1,5 +1,5 @@
 object @race
-attributes :id, :name, :short_description, :long_description, :progress, :accumulated, :image_url, :last_milestone, :youtube_id
+attributes :id, :name, :short_description, :long_description, :progress, :accumulated, :image_url, :institution_image_url, :last_milestone, :youtube_id
 attributes created_at_int: :created_at, updated_at_int: :updated_at
 
 node :links do
@@ -36,4 +36,8 @@ end
 
 child :run_types do
   attributes :id, :name
+end
+
+child :sponsors do
+  attributes :id, :name, :image_url
 end

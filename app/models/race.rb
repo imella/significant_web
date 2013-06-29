@@ -2,11 +2,13 @@ class Race < ActiveRecord::Base
   attr_accessible :long_description, :name, :short_description, :logo, :youtube_id
 
   has_attached_file :logo
+  has_attached_file :institution_image
 
   has_many :goals
   has_many :runs
   has_many :race_run_types
   has_many :run_types, through: :race_run_types
+  has_many :sponsors
 
 
   def progress
@@ -31,7 +33,7 @@ class Race < ActiveRecord::Base
 
   def current_goal
     _goal = nil
-    goals.each do |goal|
+    goals.order(:milestone).each do |goal|
       if not goal.completed?
         _goal = goal
       end
