@@ -8,6 +8,7 @@ SignificantWeb::Application.routes.draw do
   end
 
   resources :races, only: [:index, :show]
+  resources :users, only: [:index]
 
   root to: 'races#index'
 end

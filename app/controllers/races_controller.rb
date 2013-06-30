@@ -9,12 +9,4 @@ class RacesController < ApplicationController
     @race = Race.find params[:id]
     @runs = @race.runs.includes(:user).order('created_at desc')
   end
-
-  private
-
-  def authenticate
-    authenticate_or_request_with_http_basic do |username, password|
-      username == "significant" && password == "diablo666"
-    end
-  end
 end
